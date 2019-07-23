@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">DanceBot</string>
+
+    <string name="connect">соединение</string>
+    <string name="remote">далёкий</string>
+    <string name="clickconnect">Щелчок на соединении</string>
+    <string name="program">программа</string>
+    <string name="unconnected">не подключаться</string>
+    <string name="connected">соединенный</string>
+    <string name="handaction">Движение руки</string>
+    <string name="legaction">Движение ног</string>
+    <string name="combinedaction">Совместное действие</string>
+    <string name="lighting">свет</string>
+    <string name="speed">скорость</string>
+    <string name="rhythm">бить</string>
+    <string name="addactions">Добавить действие</string>
+    <string name="presentation">шоу</string>
+    <string name="play">Broadcast</string>
+    <string name="addmusic">Добавить музыку</string>
+    <string name="save">Сохранить</string>
+    <string name="cancle">отменен</string>
+    <string name="list">список</string>
+
+    <string name="savetips">Ли сохранить?</string>
+</resources>

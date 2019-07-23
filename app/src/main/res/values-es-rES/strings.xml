@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">DanceBot</string>
+
+    <string name="connect">Conexión</string>
+    <string name="remote">Remote Control</string>
+    <string name="clickconnect">Haga clic para conectar</string>
+    <string name="program">Acción de edición</string>
+    <string name="unconnected">No conectado</string>
+    <string name="connected">Conectado</string>
+    <string name="handaction">Movimiento de la mano</string>
+    <string name="legaction">Movimiento de la pierna</string>
+    <string name="combinedaction">Acción combinada</string>
+    <string name="lighting">Luz</string>
+    <string name="speed">Velocidad</string>
+    <string name="rhythm">Batir</string>
+    <string name="addactions">Añadir acción</string>
+    <string name="presentation">Demostración</string>
+    <string name="play">Jugar</string>
+    <string name="addmusic">Agregar musica</string>
+    <string name="save">Guardar</string>
+    <string name="cancle">Cancelar</string>
+    <string name="list">Lista</string>
+
+    <string name="savetips">Ya sea para guardar?</string>
+</resources>

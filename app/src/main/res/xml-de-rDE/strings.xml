@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingDefaultResource">
+    <string name="app_name">DanceBot</string>
+
+    <string name="connect">Verbindung</string>
+    <string name="remote">Fernbedienung</string>
+    <string name="clickconnect">Klicken Sie, um eine Verbindung herzustellen</string>
+    <string name="program">Aktion bearbeiten</string>
+    <string name="unconnected">Nicht verbunden</string>
+    <string name="connected">Verbunden</string>
+    <string name="handaction">Handbewegung</string>
+    <string name="legaction">Beinbewegung</string>
+    <string name="combinedaction">Kombinierte Aktion</string>
+    <string name="lighting">Licht</string>
+    <string name="speed">Geschwindigkeit</string>
+    <string name="rhythm">Schlagen</string>
+    <string name="addactions">Aktion hinzufügen</string>
+    <string name="presentation">Vorführung</string>
+    <string name="play">Spielen</string>
+    <string name="addmusic">Musik hinzufügen</string>
+    <string name="save">Speichern</string>
+    <string name="cancle">отменен</string>
+    <string name="list">Liste</string>
+
+    <string name="savetips">Ist es gerettet?</string>
+</resources>

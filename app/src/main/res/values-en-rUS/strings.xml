@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">DanceBot</string>
+
+    <string name="connect">Connect</string>
+    <string name="remote">Remote Control</string>
+    <string name="clickconnect">Click on connect</string>
+    <string name="program">Program</string>
+    <string name="unconnected">Unconnected</string>
+    <string name="connected">connected</string>
+    <string name="handaction">Hand action</string>
+    <string name="legaction">Leg action</string>
+    <string name="combinedaction">Combined action</string>
+    <string name="lighting">Lighting</string>
+    <string name="speed">Speed</string>
+    <string name="rhythm">rhythm</string>
+    <string name="addactions">Add Actions</string>
+    <string name="presentation">Presentation</string>
+    <string name="play">Play</string>
+    <string name="addmusic">Add Music</string>
+    <string name="save">Save</string>
+    <string name="cancle">Cancle</string>
+    <string name="list">List</string>
+
+    <string name="savetips">Your program is changed. Do you save it?</string>
+</resources>

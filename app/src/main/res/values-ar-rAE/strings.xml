@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">DanceBot</string>
+
+    <string name="connect">صلة</string>
+    <string name="remote">تحرير العمل</string>
+    <string name="clickconnect">انقر للاتصال</string>
+    <string name="program">=تحرير العمل</string>
+    <string name="unconnected">غير متصل</string>
+    <string name="connected">متصل</string>
+    <string name="handaction">حركة اليد</string>
+    <string name="legaction">حركة الساق</string>
+    <string name="combinedaction">العمل المشترك</string>
+    <string name="lighting">ضوء</string>
+    <string name="speed">سرعة</string>
+    <string name="rhythm">فاز</string>
+    <string name="addactions">إضافة العمل</string>
+    <string name="presentation">عرض</string>
+    <string name="play">البث</string>
+    <string name="addmusic">أضف موسيقى</string>
+    <string name="save">حفظ</string>
+    <string name="cancle">ألغيت</string>
+    <string name="list">قائمة</string>
+
+    <string name="savetips">هل تم الحفظ؟</string>
+</resources>

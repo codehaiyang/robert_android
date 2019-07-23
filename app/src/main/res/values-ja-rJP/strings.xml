@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">DanceBot</string>
+
+    <string name="connect">つながり</string>
+    <string name="remote">リモコン</string>
+    <string name="clickconnect">クリックして接続する</string>
+    <string name="program">編集アクション</string>
+    <string name="unconnected">接続されていません</string>
+    <string name="connected">接続済み</string>
+    <string name="handaction">手の動き</string>
+    <string name="legaction">足の動き</string>
+    <string name="combinedaction">組み合わせアクション</string>
+    <string name="lighting">軽い</string>
+    <string name="speed">スピード</string>
+    <string name="rhythm">ビート</string>
+    <string name="addactions">アクションを追加</string>
+    <string name="presentation">デモンストレーション</string>
+    <string name="play">遊ぶ</string>
+    <string name="addmusic">音楽を追加</string>
+    <string name="save">保存する</string>
+    <string name="cancle">キャンセル</string>
+    <string name="list">リスト</string>
+
+    <string name="savetips">保存するかどうか?</string>
+</resources>
