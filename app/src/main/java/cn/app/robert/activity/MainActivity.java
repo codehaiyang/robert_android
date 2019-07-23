@@ -15,8 +15,13 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.clj.fastble.BleManager;
+import com.clj.fastble.data.BleDevice;
+
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
+
+import java.util.List;
+
 import butterknife.BindView;
 import cn.app.robert.MyApplication;
 import cn.app.robert.R;
@@ -65,6 +70,22 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     protected void initData() {
         mContext = this;
         EventBus.getDefault().register(this);
+//        BleManager.getInstance().init(getApplication());
+//        BluetoothUtils.getInstance(0).scan();
+        List<BleDevice> allConnectedDevice = BleManager.getInstance().getAllConnectedDevice();
+        if (allConnectedDevice != null){
+            for (BleDevice device: allConnectedDevice) {
+                boolean connected = BleManager.getInstance().isConnected(device);
+                if (connected){
+                    mTvStatus.setText(R.string.connected);
+                    mTvStatus.setTextColor(getResources().getColor(R.color.textBg));
+                    mIbStatus.setImageResource(R.mipmap.ic_blue);
+                    mRlHead.setBackgroundResource(R.mipmap.head);
+                    mLlJump.setVisibility(View.VISIBLE);
+                    break;
+                }
+            }
+        }
     }
 
     public void initBlue(){
@@ -103,9 +124,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                         public void onConnect(BluetoothDevice device) {
                             Log.d(TAG, "onConnect: ----------------" + device.getName());
                             if (device.getName().equals("Robert")){
-                                openActivity(MainActivity.class);
+                                finish();
+                                initBlue();
+                                openActivity(AnimationActivity.class);
                             }
-                            initBlue();
                             mLlJump.setVisibility(View.VISIBLE);
                         }
 
@@ -119,10 +141,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 }
                 break;
             case R.id.ib_to_remote:
-                openActivity("page","remote",AnimationActivity.class);
+                openActivity(RemoteActivity.class);
                 break;
             case R.id.ib_to_program:
-                openActivity("page","program",AnimationActivity.class);
+                openActivity(ProgramActivity.class);
                 break;
             case R.id.ib_setting:
                 initBlue();
@@ -183,7 +205,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        unregisterReceiver(connectReceiver);
+        if (connectReceiver != null){
+            unregisterReceiver(connectReceiver);
+        }
         EventBus.getDefault().unregister(this);
     }
 }

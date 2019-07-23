@@ -2,11 +2,14 @@ package cn.app.robert.activity;
 
 import android.util.Log;
 
+import com.clj.fastble.BleManager;
+
 import java.io.IOException;
 
 import butterknife.BindView;
 import cn.app.robert.R;
 import cn.app.robert.base.BaseActivity;
+import cn.app.robert.utils.BluetoothUtils;
 import pl.droidsonroids.gif.GifDrawable;
 import pl.droidsonroids.gif.GifImageView;
 
@@ -23,7 +26,6 @@ public class AnimationActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-        String page = getIntent().getStringExtra("page");
         GifDrawable gifDrawable = null;
         try {
             gifDrawable = new GifDrawable(getResources(), R.drawable.robert_ani);
@@ -33,11 +35,7 @@ public class AnimationActivity extends BaseActivity {
             gifDrawable.addAnimationListener(loopNumber -> {
                 Log.d(TAG, "onAnimationCompleted: over");
                 finish();
-                if (page.equals("remote")){
-                    openActivity(RemoteActivity.class);
-                }else {
-                    openActivity(ProgramActivity.class);
-                }
+                openActivity(MainActivity.class);
             });
         } catch (IOException e) {
             e.printStackTrace();
