@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Robert</string>
+
+    <string name="connect">连接</string>
+    <string name="remote">遥控器</string>
+    <string name="clickconnect">点击连接</string>
+    <string name="program">动作编辑</string>
+    <string name="unconnected">未连接</string>
+    <string name="connected">已连接</string>
+    <string name="handaction">手部动作</string>
+    <string name="legaction">腿部动作</string>
+    <string name="combinedaction">组合动作</string>
+    <string name="lighting">灯光</string>
+    <string name="speed">速度</string>
+    <string name="rhythm">节拍</string>
+    <string name="addactions">添加动作</string>
+    <string name="presentation">演示</string>
+    <string name="play">播放</string>
+    <string name="addmusic">添加音乐</string>
+    <string name="save">保存</string>
+    <string name="cancle">取消</string>
+    <string name="list">列表</string>
+
+    <string name="savetips">是否保存?</string>
+</resources>

@@ -1,24 +1,20 @@
-package cn.robert.app.services;
+package cn.app.robert.services;
 
 import android.app.Service;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothManager;
-import android.bluetooth.le.AdvertiseCallback;
-import android.bluetooth.le.AdvertiseData;
-import android.bluetooth.le.AdvertiseSettings;
-import android.bluetooth.le.BluetoothLeAdvertiser;
-//import android.bluetooth.IBluetoothManager;
-import android.bluetooth.le.BluetoothLeScanner;
 import android.bluetooth.le.ScanCallback;
 import android.bluetooth.le.ScanResult;
 import android.content.Intent;
 import android.os.Binder;
-import android.os.Handler;
 import android.os.IBinder;
 import android.os.IInterface;
 import android.util.Log;
+
 import androidx.annotation.Nullable;
+
+//import android.bluetooth.IBluetoothManager;
 
 
 public class RobotBluetoothService  extends Service {

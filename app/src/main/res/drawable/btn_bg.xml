@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <!--<solid-->
+        <!--android:color="#00000000" />&lt;!&ndash; 背景填充颜色 &ndash;&gt;-->
+
+    <stroke
+        android:width="3dp"
+        android:color="#34FEF1" />
+
+    <corners android:radius="100dp" /><!-- 边角圆弧的半径 -->
+
+    <!--<item android:width="95dp" android:height="32dp">-->
+        <!--<shape android:shape="rectangle">-->
+            <!--<gradient android:type="linear" -->
+                <!--android:useLevel="true"-->
+                <!--android:startColor="#ff22a5ff" -->
+                <!--android:endColor="#ff17ffe1"-->
+                <!--android:angle="-18" />-->
+            <!---->
+            <!--<stroke android:width="2dp" -->
+                <!--android:color="#ff000000" />-->
+            <!---->
+            <!--<corners android:topLeftRadius="16dp" -->
+                <!--android:topRightRadius="16dp"-->
+                <!--android:bottomLeftRadius="16dp" -->
+                <!--android:bottomRightRadius="16dp" />-->
+        <!--</shape>-->
+    <!--</item>-->
+
+</shape>

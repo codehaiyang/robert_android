@@ -1,12 +1,12 @@
-package cn.robert.app.activity;
+package cn.app.robert.activity;
 
 import android.util.Log;
 
 import java.io.IOException;
 
 import butterknife.BindView;
-import cn.robert.app.R;
-import cn.robert.app.base.BaseActivity;
+import cn.app.robert.R;
+import cn.app.robert.base.BaseActivity;
 import pl.droidsonroids.gif.GifDrawable;
 import pl.droidsonroids.gif.GifImageView;
 
@@ -26,18 +26,18 @@ public class AnimationActivity extends BaseActivity {
         String page = getIntent().getStringExtra("page");
         GifDrawable gifDrawable = null;
         try {
-            if ("0".equals(page)){
-                gifDrawable = new GifDrawable(getResources(), R.drawable.big_robot);
-            }else {
-                gifDrawable = new GifDrawable(getResources(), R.drawable.little_robot);
-            }
+            gifDrawable = new GifDrawable(getResources(), R.drawable.robert_ani);
             mIvGif.setImageDrawable(gifDrawable);
             gifDrawable.setLoopCount(1);
             // 设置动画完成监听器
             gifDrawable.addAnimationListener(loopNumber -> {
                 Log.d(TAG, "onAnimationCompleted: over");
                 finish();
-                openActivity("page",page,HomeActivity.class);
+                if (page.equals("remote")){
+                    openActivity(RemoteActivity.class);
+                }else {
+                    openActivity(ProgramActivity.class);
+                }
             });
         } catch (IOException e) {
             e.printStackTrace();

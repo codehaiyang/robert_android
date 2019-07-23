@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="colorBg">#181818</color>
+    <color name="bgWhite">#ffffff</color>
+    <color name="bgActionPress">#007AFF</color>
+    <color name="bgActionNormal">#8A8A8A</color>
+    <color name="seekBg">#434343</color>
+    <color name="textBg">#31F4F3</color>
+    <color name="unTextBg">#f52159</color>
+</resources>
