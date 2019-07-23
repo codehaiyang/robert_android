@@ -16,10 +16,11 @@
         android:background="@mipmap/unhead">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:id="@+id/ll_connect"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:gravity="center_vertical"
+            android:gravity="center"
             android:layout_centerInParent="true">
 
             <ImageView
@@ -40,13 +41,15 @@
     </RelativeLayout>
 
     <LinearLayout
+        android:id="@+id/ll_jump"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:orientation="vertical"
         android:layout_marginRight="40dp"
         android:layout_gravity="right"
-        android:padding="10dp">
+        android:padding="10dp"
+        android:visibility="gone">
 
         <ImageView
             android:id="@+id/ib_to_remote"

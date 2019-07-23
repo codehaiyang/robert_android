@@ -6,19 +6,17 @@ import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothProfile;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.content.pm.PackageManager;
 import android.os.Build;
 import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.clj.fastble.BleManager;
-
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
-import androidx.annotation.NonNull;
 import butterknife.BindView;
 import cn.app.robert.MyApplication;
 import cn.app.robert.R;
@@ -44,14 +42,20 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     ImageView mIbStatus;
     @BindView(R.id.rl_head)
     RelativeLayout mRlHead;
+    @BindView(R.id.ll_connect)
+    LinearLayout mLlConnect;
+    @BindView(R.id.ll_jump)
+    LinearLayout mLlJump;
 
     private static final int PERMISSION_REQUEST_LOCATION = 99;
     private MainActivity mContext;
+    private BlueToothConnectReceiver connectReceiver;
 
     @Override
     protected void initView() {
         requirePermission();
 
+        mLlConnect.setOnClickListener(this);
         mIbToRemote.setOnClickListener(this);
         mIbToProgram.setOnClickListener(this);
         mIbSeeting.setOnClickListener(this);
@@ -60,28 +64,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     @Override
     protected void initData() {
         mContext = this;
-        if (!checkConnectDevice()) {
-            Intent intent = new Intent(Settings.ACTION_BLUETOOTH_SETTINGS);
-            startActivityForResult(intent, 0);
-            BlueToothConnectReceiver connectReceiver = new BlueToothConnectReceiver();
-            IntentFilter intentFilter = new IntentFilter(BluetoothDevice.ACTION_ACL_CONNECTED);
-            registerReceiver(connectReceiver,intentFilter);
-            connectReceiver.setOnBleConnectListener(new BlueToothConnectReceiver.OnBleConnectListener() {
-                @Override
-                public void onConnect(BluetoothDevice device) {
-                    Log.d(TAG, "onConnect:  -------------" + device.getName());
-                    openActivity(MainActivity.class);
-                    initBlue();
-                }
-
-                @Override
-                public void onDisConnect(BluetoothDevice device) {
-                }
-            });
-        }else{
-            //注册蓝牙事件
-            initBlue();
-        }
         EventBus.getDefault().register(this);
     }
 
@@ -109,6 +91,33 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         switch (v.getId()){
+            case R.id.ll_connect:
+                if (!checkConnectDevice()) {
+                    Intent intent = new Intent(Settings.ACTION_BLUETOOTH_SETTINGS);
+                    startActivityForResult(intent, 0);
+                    connectReceiver = new BlueToothConnectReceiver();
+                    IntentFilter intentFilter = new IntentFilter(BluetoothDevice.ACTION_ACL_CONNECTED);
+                    registerReceiver(connectReceiver,intentFilter);
+                    connectReceiver.setOnBleConnectListener(new BlueToothConnectReceiver.OnBleConnectListener() {
+                        @Override
+                        public void onConnect(BluetoothDevice device) {
+                            Log.d(TAG, "onConnect: ----------------" + device.getName());
+                            if (device.getName().equals("Robert")){
+                                openActivity(MainActivity.class);
+                            }
+                            initBlue();
+                            mLlJump.setVisibility(View.VISIBLE);
+                        }
+
+                        @Override
+                        public void onDisConnect(BluetoothDevice device) {
+                        }
+                    });
+                }else{
+                    //注册蓝牙事件
+                    initBlue();
+                }
+                break;
             case R.id.ib_to_remote:
                 openActivity("page","remote",AnimationActivity.class);
                 break;
@@ -132,6 +141,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             mTvStatus.setTextColor(getResources().getColor(R.color.unTextBg));
             mIbStatus.setImageResource(R.mipmap.ic_un_blue);
             mRlHead.setBackgroundResource(R.mipmap.unhead);
+            mLlJump.setVisibility(View.GONE);
         } else if(status == RobotBleListener.ConnectStatusSuccess) {
             // 连接成功
             Log.d(TAG, "blueStautsChange: -------------success");
@@ -139,6 +149,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             mTvStatus.setTextColor(getResources().getColor(R.color.textBg));
             mIbStatus.setImageResource(R.mipmap.ic_blue);
             mRlHead.setBackgroundResource(R.mipmap.head);
+            mLlJump.setVisibility(View.VISIBLE);
         } else if(status == RobotBleListener.ConnectStatusFail) {
             // 连接失败
             Log.d(TAG, "blueStautsChange: -------------fail");
@@ -146,6 +157,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             mTvStatus.setTextColor(getResources().getColor(R.color.unTextBg));
             mIbStatus.setImageResource(R.mipmap.ic_un_blue);
             mRlHead.setBackgroundResource(R.mipmap.unhead);
+            mLlJump.setVisibility(View.GONE);
         }
     }
 
@@ -166,5 +178,12 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             return false;
         }
         return true;
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unregisterReceiver(connectReceiver);
+        EventBus.getDefault().unregister(this);
     }
 }
