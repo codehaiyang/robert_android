@@ -20,6 +20,7 @@
     <string name="save">保存</string>
     <string name="cancle">取消</string>
     <string name="list">列表</string>
+    <string name="back">返回</string>
 
     <string name="savetips">是否保存?</string>
 </resources>

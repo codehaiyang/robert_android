@@ -16,12 +16,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.clj.fastble.BleManager;
 import com.clj.fastble.data.BleDevice;
-
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
-
 import java.util.List;
-
 import butterknife.BindView;
 import cn.app.robert.MyApplication;
 import cn.app.robert.R;

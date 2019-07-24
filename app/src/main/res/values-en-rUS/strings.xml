@@ -21,6 +21,7 @@
     <string name="save">Save</string>
     <string name="cancle">Cancle</string>
     <string name="list">List</string>
+    <string name="back">Back</string>
 
     <string name="savetips">Your program is changed. Do you save it?</string>
 </resources>

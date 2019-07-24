@@ -12,6 +12,7 @@ import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -87,7 +88,7 @@ public class ProgramActivity extends BaseActivity implements View.OnClickListene
     @BindView(R.id.rv_actions_list)
     RecyclerView mRvActionsList;
     @BindView(R.id.ib_back)
-    ImageButton mIbBack;
+    Button mIbBack;
     @BindView(R.id.tv_add_music)
     TextView mTvAddMusic;
     @BindView(R.id.tv_music_name)
@@ -674,8 +675,7 @@ public class ProgramActivity extends BaseActivity implements View.OnClickListene
         if (actions.size() == 0){
             return;
         }
-        // 没有采集不能播放
-        if (actions.size() == 0){
+        if (lastPosition == 0){
             return;
         }
         isPlaying =  !isPlaying;

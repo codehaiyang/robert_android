@@ -13,12 +13,16 @@
         android:orientation="horizontal"
         android:background="@mipmap/head">
 
-        <ImageButton
+        <Button
             android:id="@+id/ib_back"
-            android:layout_width="wrap_content"
+            android:layout_width="60dp"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:layout_marginTop="5dp"
             android:layout_marginStart="20dp"
+            android:text="@string/back"
+            android:textSize="12sp"
+            android:textColor="@color/textBg"
             android:background="@mipmap/ib_icon_back" />
 
         <LinearLayout

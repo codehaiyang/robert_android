@@ -5,6 +5,7 @@ import android.content.IntentFilter;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -44,7 +45,7 @@ public class RemoteActivity extends BaseActivity implements View.OnClickListener
     private int colorMode = 0; //常亮
 
     @BindView(R.id.ib_back)
-    ImageButton mIbBack;
+    Button mIbBack;
     @BindView(R.id.ib_light_white)
     ImageView mIbLightWhite;
     @BindView(R.id.ib_light_blue)
