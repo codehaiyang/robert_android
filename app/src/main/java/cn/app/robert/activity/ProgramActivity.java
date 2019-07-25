@@ -675,6 +675,7 @@ public class ProgramActivity extends BaseActivity implements View.OnClickListene
         if (actions.size() == 0){
             return;
         }
+        // 没有采集不能播放
         if (lastPosition == 0){
             return;
         }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools"
     tools:ignore="MissingDefaultResource">
-    <string name="app_name">DanceBot</string>
+    <string name="app_name">Robertt</string>
 
     <string name="connect">Verbindung</string>
     <string name="remote">Fernbedienung</string>
@@ -22,6 +22,6 @@
     <string name="save">Speichern</string>
     <string name="cancle">отменен</string>
     <string name="list">Liste</string>
-
+    <string name="back">Zurück</string>
     <string name="savetips">Ist es gerettet?</string>
 </resources>

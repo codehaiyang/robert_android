@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">DanceBot</string>
+    <string name="app_name">Robertt</string>
 
     <string name="connect">つながり</string>
     <string name="remote">リモコン</string>
@@ -21,6 +21,6 @@
     <string name="save">保存する</string>
     <string name="cancle">キャンセル</string>
     <string name="list">リスト</string>
-
+    <string name="back">戻る</string>
     <string name="savetips">保存するかどうか?</string>
 </resources>

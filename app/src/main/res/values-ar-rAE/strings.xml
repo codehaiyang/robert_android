@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">DanceBot</string>
-
+    <string name="app_name">Robertt</string>
     <string name="connect">صلة</string>
     <string name="remote">تحرير العمل</string>
     <string name="clickconnect">انقر للاتصال</string>
@@ -21,6 +20,6 @@
     <string name="save">حفظ</string>
     <string name="cancle">ألغيت</string>
     <string name="list">قائمة</string>
-
+    <string name="back">رجع</string>
     <string name="savetips">هل تم الحفظ؟</string>
 </resources>

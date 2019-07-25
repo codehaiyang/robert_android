@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">DanceBot</string>
+    <string name="app_name">Robertt</string>
 
     <string name="connect">Connexion</string>
     <string name="remote">Contrôle à distance</string>
@@ -21,6 +21,6 @@
     <string name="save">Enregistrer</string>
     <string name="cancle">Annuler</string>
     <string name="list">Liste</string>
-
+    <string name="back">Retour</string>
     <string name="savetips">Que ce soit pour sauver?</string>
 </resources>
