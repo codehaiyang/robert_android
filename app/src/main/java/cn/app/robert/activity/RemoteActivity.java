@@ -1,7 +1,5 @@
 package cn.app.robert.activity;
 
-import android.bluetooth.BluetoothDevice;
-import android.content.IntentFilter;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
@@ -14,9 +12,6 @@ import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.Switch;
 import android.widget.TextView;
-
-import com.clj.fastble.BleManager;
-
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import java.util.Random;
@@ -27,7 +22,6 @@ import cn.app.robert.data.DataFrame;
 import cn.app.robert.data.DataPackage;
 import cn.app.robert.data.DataPackageType;
 import cn.app.robert.entity.BlueStatusMessage;
-import cn.app.robert.services.BlueToothConnectReceiver;
 import cn.app.robert.utils.BluetoothUtils;
 import cn.app.robert.utils.LightColor;
 import cn.app.robert.utils.LightMode;
@@ -179,8 +173,8 @@ public class RemoteActivity extends BaseActivity implements View.OnClickListener
 
     @Override
     protected void initData() {
-        BleManager.getInstance().init(getApplication());
-        BluetoothUtils.getInstance(0).scan();
+        //BleManager.getInstance().init(getApplication());
+       // BluetoothUtils.getInstance(0).scan();
         EventBus.getDefault().register(this);
 //        BlueToothConnectReceiver connectReceiver = new BlueToothConnectReceiver();
 //        IntentFilter intentFilter = new IntentFilter(BluetoothDevice.ACTION_ACL_CONNECTED);
