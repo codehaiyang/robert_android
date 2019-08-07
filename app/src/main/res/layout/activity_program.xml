@@ -324,6 +324,8 @@
                             android:layout_centerInParent="true"
                             android:textColor="#ffffffff"
                             android:textSize="12sp"
+                            android:ellipsize="end"
+                            android:maxLines="1"
                             android:text="@string/addmusic"/>
 
                     </RelativeLayout>

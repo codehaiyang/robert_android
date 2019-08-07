@@ -149,6 +149,7 @@ public class BluetoothUtils {
                 if(listener!=null) {
                     listener.blueStautsChange(RobotBleListener.ConnectStatusFail);
                 }
+                connect(bleDevice);
             }
 
             @Override

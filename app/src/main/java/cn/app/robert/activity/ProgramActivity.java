@@ -273,9 +273,24 @@ public class ProgramActivity extends BaseActivity implements View.OnClickListene
             public void onCompletion(MediaPlayer mp) {
                 Log.d(TAG, "onCompletion: ---------------播放完毕--------------------");
                 // 修改收集状态为停止
-                presentionStatus = false;
-                mIbPresentation.setBackgroundResource(R.mipmap.ib_icon_start);
+                if (presentionStatus){
+                    presentionStatus = false;
+                    mIbPresentation.setBackgroundResource(R.mipmap.ib_icon_start);
+                }
+                //播放状态
+                if (isPlaying){
+                    isPlaying = false;
+                    mIbPlay.setBackgroundResource(R.mipmap.ib_icon_start);
+                }
                 currentMusicStatus = false;
+                if (needleRotation != null) {
+                    needleRotation.start();
+                }
+                if (albumRotation != null && albumRotation.isRunning()) {
+                    albumRotation.cancel();
+                    float valueAvatar = (float) albumRotation.getAnimatedValue();
+                    albumRotation.setFloatValues(valueAvatar, 360f + valueAvatar);
+                }
                 // 播放完成设置最后动作的时长
                 actionBean.setMusicPosition(mp.getCurrentPosition() - afterActionPosition);
                 // 设置最后的时长
@@ -599,7 +614,10 @@ public class ProgramActivity extends BaseActivity implements View.OnClickListene
         }
         // 判断当前音乐播放完成 不可以再继续收集
         if(!currentMusicStatus){
-            return;
+            // 播放完成替换最后一个动作继续采集
+            if (actionBean.getMusicPosition() != 0){
+                return;
+            }
         }
         //收集动作属性
         if(actionBean != null){
@@ -676,7 +694,8 @@ public class ProgramActivity extends BaseActivity implements View.OnClickListene
             return;
         }
         // 没有采集不能播放
-        if (lastPosition == 0){
+        ActionBean lastAction = actions.get(actions.size() - 1);
+        if (lastAction.getLastPosition() == 0){
             return;
         }
         isPlaying =  !isPlaying;
@@ -705,6 +724,9 @@ public class ProgramActivity extends BaseActivity implements View.OnClickListene
     private void stopMusic(String flag) {
         //sendCommandPresentStop();
         lastPosition = mediaPlayer.getCurrentPosition();
+        if (mContext.actions.size() > 0){
+           mContext.actions.get(mContext.actions.size() - 1).setLastPosition(lastPosition);
+        }
         //采集
 //        if(flag.equals("presentation")){
 //            lastPosition = mediaPlayer.getCurrentPosition();
@@ -1083,8 +1105,17 @@ public class ProgramActivity extends BaseActivity implements View.OnClickListene
                         //修改动作
                         int lastIndex = actions.indexOf(mContext.actionBean);
                         playerActionAdapter.updateAction(actionBean,lastIndex);
-                        mContext.actions.remove(flag);
+                        mContext.actions.remove(lastIndex);
                         mContext.actions.add(actionBean);
+                        if(lastIndex > 0){
+                            ActionBean actionBean1 = mContext.actions.get(lastIndex - 1);
+                            mediaPlayer.seekTo(actionBean1.getLastPosition());
+                        }else {
+                            ActionBean actionBean1 = mContext.actions.get(lastIndex);
+                            mediaPlayer.seekTo(actionBean1.getLastPosition());
+                        }
+                        //记录当前动作
+                        mContext.actionBean  = actionBean;
                         flag = 999;
                         return;
                     }
