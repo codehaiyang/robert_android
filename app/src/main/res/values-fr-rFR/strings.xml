@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Robertt</string>
+    <string name="app_name">D-JIX Apollo</string>
 
     <string name="connect">Connexion</string>
     <string name="remote">Contrôle à distance</string>
@@ -8,16 +8,16 @@
     <string name="program">Édition daction</string>
     <string name="unconnected">Non connecté</string>
     <string name="connected">Connecté</string>
-    <string name="handaction">Mouvement de la main</string>
+    <string name="handaction">Bouger mains</string>
     <string name="legaction">Mouvement des jambes</string>
-    <string name="combinedaction">Action combinée</string>
-    <string name="lighting">Luz</string>
-    <string name="speed">La vitesse</string>
-    <string name="rhythm">Battre</string>
+    <string name="combinedaction">Mains et Pieds</string>
+    <string name="lighting">Lumières</string>
+    <string name="speed">Vitesse</string>
+    <string name="rhythm">Rythme</string>
     <string name="addactions">Ajouter une action</string>
     <string name="presentation">Démonstration</string>
     <string name="play">Jouer</string>
-    <string name="addmusic">Agregar musica</string>
+    <string name="addmusic">Ajouter musique</string>
     <string name="save">Enregistrer</string>
     <string name="cancle">Annuler</string>
     <string name="list">Liste</string>

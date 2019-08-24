@@ -62,8 +62,8 @@ public class LocalMusicUtils {
                     }
                 }
                 // 去掉后缀
-                String replace = song.getName().replace(".mp3", "");
-                song.setName(replace);
+//                String replace = song.getName().replace(".mp3", "");
+//                song.setName(replace);
                 list.add(LocalMusicUtils.song);
             }
         }

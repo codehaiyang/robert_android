@@ -41,8 +41,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     ImageView mIbToRemote;
     @BindView(R.id.ib_to_program)
     ImageView mIbToProgram;
-    @BindView(R.id.ib_setting)
-    ImageView mIbSeeting;
     @BindView(R.id.tv_status)
     TextView mTvStatus;
     @BindView(R.id.iv_status)
@@ -69,7 +67,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         mLlConnect.setOnClickListener(this);
         mIbToRemote.setOnClickListener(this);
         mIbToProgram.setOnClickListener(this);
-        mIbSeeting.setOnClickListener(this);
+//        mIbSeeting.setOnClickListener(this);
         boolean bleConnected = checkConnectDevice();
         if (bleConnected){
             //注册蓝牙事件
@@ -168,9 +166,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             case R.id.ib_to_program:
                 openActivity(ProgramActivity.class);
                 break;
-            case R.id.ib_setting:
-                initBlue();
-                break;
+//            case R.id.ib_setting:
+//                initBlue();
+//                break;
                 default:
         }
     }

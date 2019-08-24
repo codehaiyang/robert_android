@@ -293,9 +293,11 @@ public class ProgramActivity extends BaseActivity implements View.OnClickListene
                 }
                 // 播放完成设置最后动作的时长
                 actionBean.setMusicPosition(mp.getCurrentPosition() - afterActionPosition);
+                actionBean.setLastPosition(mp.getCurrentPosition());
                 // 设置最后的时长
                 lastPosition = mp.getCurrentPosition();
                 isStop = !isStop;
+                playerActionAdapter.setPresenterStatus(true);
                 sendCommand((byte)77,(byte)8);
             }
         });
@@ -615,7 +617,7 @@ public class ProgramActivity extends BaseActivity implements View.OnClickListene
         // 判断当前音乐播放完成 不可以再继续收集
         if(!currentMusicStatus){
             // 播放完成替换最后一个动作继续采集
-            if (actionBean.getMusicPosition() != 0){
+            if (actionBean.getMusicPosition() == 0){
                 return;
             }
         }
