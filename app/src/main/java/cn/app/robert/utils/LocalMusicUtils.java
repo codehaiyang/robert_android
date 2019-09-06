@@ -50,15 +50,17 @@ public class LocalMusicUtils {
                 LocalMusicUtils.song.setId(cursor.getLong(cursor.getColumnIndexOrThrow(MediaStore.Audio.Media._ID)));
                 String name = LocalMusicUtils.song.getName();
                 String singer = LocalMusicUtils.song.getSinger();
-                if (LocalMusicUtils.song.getSize() > 1000 * 800) {
-                    if (name.contains("-")) {
-                        String[] str = name.split("-");
-                        singer = str[0];
-                        LocalMusicUtils.song.setSinger(singer);
-                        name = str[1];
-                        LocalMusicUtils.song.setName(name);
-                    } else {
-                        LocalMusicUtils.song.setName(name);
+                if (name != null){
+                    if (LocalMusicUtils.song.getSize() > 1000 * 800) {
+                        if (name.contains("-")) {
+                            String[] str = name.split("-");
+                            singer = str[0];
+                            LocalMusicUtils.song.setSinger(singer);
+                            name = str[1];
+                            LocalMusicUtils.song.setName(name);
+                        } else {
+                            LocalMusicUtils.song.setName(name);
+                        }
                     }
                 }
                 // 去掉后缀

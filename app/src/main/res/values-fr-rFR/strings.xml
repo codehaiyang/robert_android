@@ -11,7 +11,7 @@
     <string name="handaction">Bouger mains</string>
     <string name="legaction">Mouvement des jambes</string>
     <string name="combinedaction">Mains et Pieds</string>
-    <string name="lighting">Lumières</string>
+    <string name="lighting">Yeux</string>
     <string name="speed">Vitesse</string>
     <string name="rhythm">Rythme</string>
     <string name="addactions">Ajouter une action</string>

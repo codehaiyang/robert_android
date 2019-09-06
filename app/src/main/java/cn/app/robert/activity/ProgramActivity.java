@@ -6,6 +6,7 @@ import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.ContentValues;
 import android.content.DialogInterface;
+import android.database.Cursor;
 import android.media.MediaPlayer;
 import android.os.Handler;
 import android.os.Message;
@@ -410,8 +411,14 @@ public class ProgramActivity extends BaseActivity implements View.OnClickListene
 
         //删除
         if(actionsBean != null){
-            helper.delete(actionsBean.getName()+"",OpenHelper.TABLE_ACTIONS);
-            helper.deleteByNumber(actionsBean.getNumber(),OpenHelper.TABLE_ACTION_DETAIL);
+            Cursor cursor = helper.queryByName(OpenHelper.TABLE_ACTIONS, song.getName());
+            if (cursor != null){
+                while (cursor.moveToNext()){
+                    String number = cursor.getString(cursor.getColumnIndexOrThrow("number"));
+                    helper.deleteByNumber(actionsBean.getNumber(),OpenHelper.TABLE_ACTION_DETAIL);
+                }
+                helper.delete(song.getName()+"",OpenHelper.TABLE_ACTIONS);
+            }
         }
         // 保存最后一个动作的时间
         savePresentationTime();
@@ -896,7 +903,7 @@ public class ProgramActivity extends BaseActivity implements View.OnClickListene
                         mIbPlay.setBackgroundResource(R.mipmap.ib_icon_start);
                         stopMusic("handler");
                         playerActionAdapter.setPresenterStatus(true);
-                        //sendCommand((byte)77,(byte)8);
+                        sendCommand((byte)77,(byte)8);
                     }
                 }
             }
