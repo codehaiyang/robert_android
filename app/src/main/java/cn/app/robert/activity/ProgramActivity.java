@@ -421,7 +421,7 @@ public class ProgramActivity extends BaseActivity implements View.OnClickListene
             }
         }
         // 保存最后一个动作的时间
-        savePresentationTime();
+        //savePresentationTime();
         actionsBean = new Actions();
         actionsBean.setName(song.getName());
         actionsBean.setDuration(lastPosition);
@@ -720,6 +720,7 @@ public class ProgramActivity extends BaseActivity implements View.OnClickListene
             playMusic();
             playerActionAdapter.setPresenterStatus(false);
         }else {
+            sendCommand((byte)77,(byte)8);
             isStop = !isStop;
             mIbPlay.setBackgroundResource(R.mipmap.ib_icon_start);
             stopMusic("playing");
@@ -732,11 +733,29 @@ public class ProgramActivity extends BaseActivity implements View.OnClickListene
      */
     private void stopMusic(String flag) {
         //sendCommandPresentStop();
-        lastPosition = mediaPlayer.getCurrentPosition();
+        //lastPosition = mediaPlayer.getCurrentPosition();
         if (mContext.actions.size() > 0){
            mContext.actions.get(mContext.actions.size() - 1).setLastPosition(lastPosition);
         }
         //采集
+        if(flag.equals("presentation")){
+            lastPosition = mediaPlayer.getCurrentPosition();
+            //收集当前动作的时长
+            if(actionBean != null){
+                // 记录每个动作所播放的时长
+                if(actionBean.getMusicPosition() == 0){
+                    actionPosition= lastPosition - afterActionPosition;
+                    actionBean.setMusicPosition(actionPosition);
+                }
+                if(actionBean.getLastPosition() == 0){
+                    actionBean.setLastPosition(lastPosition);
+                }
+                // 记录上一个动作的时长
+                afterActionPosition = actionBean.getLastPosition();
+                // 记录动作序列的总时长
+                actionsBean.setDuration(lastPosition);
+            }
+        }
 //        if(flag.equals("presentation")){
 //            lastPosition = mediaPlayer.getCurrentPosition();
 //            //收集当前动作的时长
